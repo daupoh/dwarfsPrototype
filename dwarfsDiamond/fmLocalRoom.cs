@@ -16,6 +16,7 @@ namespace dwarfsDiamond
     {
         IGameMaster  m_pClient;
         fmMenu m_formMainMenu;
+        string m_sRoomID = "", m_sGameID;
         public fmLocalRoom(IGameMaster client, fmMenu menu)
         {
             InitializeComponent();
@@ -26,9 +27,19 @@ namespace dwarfsDiamond
             m_pClient = null;
             m_formMainMenu = null;
         }
+        void startLocalGame()
+        {
+            m_sRoomID = m_pClient.createLocalRoom
+                ((m_pClient as CClient).ClientName,(uint)numCountOfPlayers.Value);
+        }
         private void fmLocalRoom_FormClosed(object sender, FormClosedEventArgs e)
         {
             m_formMainMenu.Show();
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            startLocalGame();
         }
     }
 }

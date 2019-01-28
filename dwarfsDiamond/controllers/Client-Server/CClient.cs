@@ -12,22 +12,34 @@ namespace dwarfsDiamond.models.Client_Server
     class CClient: ACEntity,IGameMaster
     {
         IGameMaster m_pLocalServer;
+        string m_sClientFullName, m_sClientNickname;
 
         public CClient(IGameMaster localServer)
         {
             m_pLocalServer = localServer;
+        }
+        public string ClientName
+        {
+            get
+            {
+                return m_sClientNickname;
+            }
         }       
         public string createNewPlayer(string name)//return global player ID
-        {            
-            string nameAndId = m_pLocalServer.createNewPlayer(name),
-            justName = nameAndId.Substring(0, nameAndId.IndexOf('/'));
+        {
+            m_sClientFullName = m_pLocalServer.createNewPlayer(name);
+            m_sClientNickname = m_sClientFullName.Substring(0, m_sClientFullName.IndexOf('/'));
 
-            return justName;
+            return m_sClientNickname;
 
         }
         public void changeName(string oldName, string newName, string PlayerID) {  } //change playerID player name
 
-        public string createLocalRoom(string playerID, uint nPlayers) { return null; } //create local room for nPlayers numbers and return Room ID
+        public string createLocalRoom(string playerID, uint nPlayers)
+        {
+            return null;
+        } //create local room for nPlayers numbers and return Room ID
+
         public string createRoom(string playerID, uint nPlayers) { return null; }
         public string enterRoom(string playerID, string roomID) { return null; } //enter player with global PlayerID into room with RoomID and return GameID
         public IList<string> enterLocalRoom(string playerID, string roomID) { return null; }//enter localroom and get list of localIDs

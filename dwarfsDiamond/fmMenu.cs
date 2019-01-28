@@ -16,6 +16,8 @@ namespace dwarfsDiamond
     {
         IGameMaster m_pClient, m_pLocalServer;
         fmLocalRoom m_formLocalRoom;
+       
+
         public fmMenu()
         {
             InitializeComponent();
@@ -46,7 +48,7 @@ namespace dwarfsDiamond
             {
                 string name = m_pClient.createNewPlayer(tbxLogin.Text);
                 hideShowLogin(false);
-                hideShowMenu(true);
+                hideShowMenu(true);               
                 lblWelcome.Text += name;
             }
             catch (FormatException exc)
@@ -70,6 +72,7 @@ namespace dwarfsDiamond
         void createLocalRoom()
         {
             initiateLocalRoom();
+            
             this.Hide();
             m_formLocalRoom.Show();
         }

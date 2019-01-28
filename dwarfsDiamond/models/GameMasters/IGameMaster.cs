@@ -11,7 +11,7 @@ namespace dwarfsDiamond.models.Server
     {
         string createNewPlayer(string name);//return global player ID
         void changeName(string oldName, string newName, string PlayerID); //change playerID player name
-
+        
         string createLocalRoom(string playerID,uint nPlayers); //create local room for nPlayers numbers and return Room ID
         string createRoom(string playerID, uint nPlayers);
         string enterRoom(string playerID, string roomID); //enter player with global PlayerID into room with RoomID and return GameID
