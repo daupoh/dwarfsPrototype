@@ -1,4 +1,5 @@
 ﻿using dwarfsDiamond.models.Actions;
+using dwarfsDiamond.models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace dwarfsDiamond.models.Games
 {
-    interface IGame:IEntity
+    interface IGame
     {
         uint PlayersMaxNumbers { get; }
         uint PlayersCurrentNumbers { get; }        

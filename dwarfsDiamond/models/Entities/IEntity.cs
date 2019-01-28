@@ -9,5 +9,6 @@ namespace dwarfsDiamond.models
     interface IEntity
     {
         string Name { get;}
+        string ID { get ; }
     }
 }

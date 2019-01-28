@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace dwarfsDiamond.models.Rooms
 {
-    interface IRoom : IEntity
+    interface IRoom 
     {
         uint playersMaxNumbers{get;}
         uint playersCurrentNumbers { get; }
