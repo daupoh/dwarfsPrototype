@@ -1,6 +1,6 @@
 ﻿namespace dwarfsDiamond
 {
-    partial class Form1
+    partial class fmSettings
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -67,14 +67,14 @@
             // 
             // btnStartGame
             // 
-            this.btnStartGame.Location = new System.Drawing.Point(74, 38);
+            this.btnStartGame.Location = new System.Drawing.Point(71, 62);
             this.btnStartGame.Name = "btnStartGame";
             this.btnStartGame.Size = new System.Drawing.Size(128, 23);
             this.btnStartGame.TabIndex = 2;
             this.btnStartGame.Text = "Начать игру";
             this.btnStartGame.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // fmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -82,8 +82,11 @@
             this.Controls.Add(this.btnStartGame);
             this.Controls.Add(this.lblCountOfPlayers);
             this.Controls.Add(this.numCountOfPlayers);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(286, 135);
+            this.MinimumSize = new System.Drawing.Size(286, 135);
+            this.Name = "fmSettings";
+            this.Text = "Алмазы гномов";
             ((System.ComponentModel.ISupportInitialize)(this.numCountOfPlayers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
