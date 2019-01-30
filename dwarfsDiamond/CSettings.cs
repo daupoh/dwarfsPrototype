@@ -9,7 +9,8 @@ namespace dwarfsDiamond
     public class CSettings
     {
         const int COUNTS_OF_FIELDS = 2;
-        int m_iCountOfStowns, m_iCountOfStowForms, m_iCountOfEnemies;
+        int m_iCountOfStowns, m_iCountOfStowForms, m_iCountOfEnemies,
+            m_iCountOfHeap;
         string[] m_asStownsNames = { "Алмаз", "Изумруд", "Рубин", "Сапфир", "Золото",
                                  "Серебро","Топаз","Аметист","Гранат",
                                     "Опал","Це","Ам","Аз"};
@@ -23,6 +24,13 @@ namespace dwarfsDiamond
 
 
         public int CountOfStowns { get { return m_iCountOfStowns; } }
+        public int CountOfHeap
+        {
+            get
+            {
+                return m_iCountOfHeap;
+            }
+        }
         public int CountOfStownForms
         {
             get { return m_iCountOfStowForms; }
@@ -42,8 +50,10 @@ namespace dwarfsDiamond
             }
             set
             {
+                
                 checkNumber(value, 1, 9,null, "Некорректное количество противников");
                 m_iCountOfEnemies = value;
+                setSettingsOfHeap();
             }
         }
 
@@ -70,6 +80,21 @@ namespace dwarfsDiamond
                 }
                 return hint;
             }
+        }
+        void setSettingsOfHeap()
+        {
+            
+            switch (CountOfEnemies)
+            {
+                case 3: m_iCountOfHeap = 38; break;
+                case 4: m_iCountOfHeap = 38; break;
+                case 5: m_iCountOfHeap = 54; break;
+                case 6: m_iCountOfHeap = 54; break;
+                case 7: m_iCountOfHeap = 54; break;
+                case 8: m_iCountOfHeap = 54; break;
+                default: m_iCountOfHeap = 38; break;
+            }
+
         }
         public string getFormName(int index)
         {

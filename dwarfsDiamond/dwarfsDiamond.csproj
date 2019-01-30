@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSettings.cs" />
+    <Compile Include="fmAskStowns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmAskStowns.Designer.cs">
+      <DependentUpon>fmAskStowns.cs</DependentUpon>
+    </Compile>
     <Compile Include="fmGameField.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +67,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="fmAskStowns.resx">
+      <DependentUpon>fmAskStowns.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fmGameField.resx">
       <DependentUpon>fmGameField.cs</DependentUpon>
     </EmbeddedResource>

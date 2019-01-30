@@ -26,6 +26,53 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+        /// 
+        void initiate()
+        {
+            initiateArm();
+            initiateEnemies();
+            initiateHint();
+            tbxSetsCount.Text = "0";
+            tbxHeap.Text = m_pStartGameSettings.Settings.CountOfHeap.ToString();
+        }
+        void initiateArm()
+        {
+            int nStowns = m_pStartGameSettings.Settings.CountOfStowns,
+                nForms = m_pStartGameSettings.Settings.CountOfStownForms;
+
+            dgvArm.ColumnCount = nStowns;
+            dgvArm.RowCount = nForms;
+
+
+            for (int i = 0; i < nForms; i++)
+            {
+                dgvArm.Rows[i].HeaderCell.Value = m_pStartGameSettings.Settings
+                    .getFormName(i);
+            }
+
+            dgvArm.ColumnHeadersVisible = false;
+        }
+        void initiateHint()
+        {
+            tbxHint.Text = m_pStartGameSettings.Settings.Hint;
+        }
+        void initiateEnemies()
+        {
+            int nEnemies = m_pStartGameSettings.Settings.CountOfEnemies,
+                nFields = m_pStartGameSettings.Settings.CountOfFields;
+            dgvEnemies.RowCount = nEnemies;
+            dgvEnemies.ColumnCount = nFields;
+            for (int i = 0; i < nEnemies; i++)
+            {
+                dgvEnemies.Rows[i].HeaderCell.Value = m_pStartGameSettings.Settings
+                    .getEnemiesName(i);
+            }
+            for (int i = 0; i < nFields; i++)
+            {
+                dgvEnemies.Columns[i].HeaderCell.Value = m_pStartGameSettings.Settings
+                    .getFieldName(i);
+            }
+        }
         private void InitializeComponent()
         {
             this.gbxArm = new System.Windows.Forms.GroupBox();
@@ -40,12 +87,14 @@
             this.gbxActions = new System.Windows.Forms.GroupBox();
             this.gbxHint = new System.Windows.Forms.GroupBox();
             this.tbxHint = new System.Windows.Forms.TextBox();
+            this.btnAsk = new System.Windows.Forms.Button();
             this.gbxArm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArm)).BeginInit();
             this.gbxSets.SuspendLayout();
             this.gbxEnemies.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEnemies)).BeginInit();
             this.gbxHeap.SuspendLayout();
+            this.gbxActions.SuspendLayout();
             this.gbxHint.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,6 +143,7 @@
             this.tbxSetsCount.ReadOnly = true;
             this.tbxSetsCount.Size = new System.Drawing.Size(115, 20);
             this.tbxSetsCount.TabIndex = 1;
+            this.tbxSetsCount.Text = "0";
             // 
             // gbxEnemies
             // 
@@ -152,6 +202,7 @@
             // 
             // gbxActions
             // 
+            this.gbxActions.Controls.Add(this.btnAsk);
             this.gbxActions.Location = new System.Drawing.Point(148, 420);
             this.gbxActions.Name = "gbxActions";
             this.gbxActions.Size = new System.Drawing.Size(485, 97);
@@ -175,8 +226,18 @@
             this.tbxHint.Multiline = true;
             this.tbxHint.Name = "tbxHint";
             this.tbxHint.ReadOnly = true;
-            this.tbxHint.Size = new System.Drawing.Size(609, 38);
+            this.tbxHint.Size = new System.Drawing.Size(609, 32);
             this.tbxHint.TabIndex = 2;
+            // 
+            // btnAsk
+            // 
+            this.btnAsk.Location = new System.Drawing.Point(6, 19);
+            this.btnAsk.Name = "btnAsk";
+            this.btnAsk.Size = new System.Drawing.Size(119, 38);
+            this.btnAsk.TabIndex = 0;
+            this.btnAsk.Text = "Спросить драгоценность";
+            this.btnAsk.UseVisualStyleBackColor = true;
+            this.btnAsk.Click += new System.EventHandler(this.btnAsk_Click);
             // 
             // fmGameField
             // 
@@ -203,12 +264,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvEnemies)).EndInit();
             this.gbxHeap.ResumeLayout(false);
             this.gbxHeap.PerformLayout();
+            this.gbxActions.ResumeLayout(false);
             this.gbxHint.ResumeLayout(false);
             this.gbxHint.PerformLayout();
             this.ResumeLayout(false);
 
-        }
+            initiate();
 
+        }
+      
         #endregion
 
         private System.Windows.Forms.GroupBox gbxArm;
@@ -223,5 +287,6 @@
         private System.Windows.Forms.TextBox tbxHeap;
         private System.Windows.Forms.GroupBox gbxHint;
         private System.Windows.Forms.TextBox tbxHint;
+        private System.Windows.Forms.Button btnAsk;
     }
 }
