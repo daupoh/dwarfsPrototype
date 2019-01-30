@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSettings.cs" />
     <Compile Include="fmGameField.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +61,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="fmGameField.resx">
+      <DependentUpon>fmGameField.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fmSettings.resx">
       <DependentUpon>fmSettings.cs</DependentUpon>
     </EmbeddedResource>

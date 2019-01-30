@@ -73,6 +73,7 @@
             this.btnStartGame.TabIndex = 2;
             this.btnStartGame.Text = "Начать игру";
             this.btnStartGame.UseVisualStyleBackColor = true;
+            this.btnStartGame.Click += new System.EventHandler(this.btnStartGame_Click);
             // 
             // fmSettings
             // 
@@ -86,7 +87,7 @@
             this.MaximumSize = new System.Drawing.Size(286, 135);
             this.MinimumSize = new System.Drawing.Size(286, 135);
             this.Name = "fmSettings";
-            this.Text = "Алмазы гномов";
+            this.Text = "Гноккер";
             ((System.ComponentModel.ISupportInitialize)(this.numCountOfPlayers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
