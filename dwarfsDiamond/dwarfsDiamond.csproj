@@ -65,6 +65,15 @@
     <Compile Include="fmSettings.Designer.cs">
       <DependentUpon>fmSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="models\Arm\IAskingStown.cs" />
+    <Compile Include="models\Dek\IDek.cs" />
+    <Compile Include="models\Arm\IArm.cs" />
+    <Compile Include="models\GameMaster\IGameMaster.cs" />
+    <Compile Include="models\Player\CMainPlayer.cs" />
+    <Compile Include="models\Player\CSimpleBot.cs" />
+    <Compile Include="models\Player\IPlayer.cs" />
+    <Compile Include="models\Set\ISet.cs" />
+    <Compile Include="models\Stown\IStown.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fmAskStowns.resx">
@@ -98,6 +107,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
